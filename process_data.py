@@ -45,11 +45,12 @@ for station in stations:
         for file in files:
             if station in file:
                 print('Reading: {}'.format(file))
-                # TODO: need to define missing value for each column of data
                 yearly_data = pd.read_csv(os.path.join(subdir, file),
                                           sep='\s*', header=None, names=colnames, engine='python',
                                           parse_dates={'UTC_DATETIME': ['UTC_DATE', 'UTC_TIME']},
                                           date_parser=lambda date, time: datetime.strptime(date+time, '%Y%m%d%H%M'),
+                                          na_values=[-9999.0, -99999, -9999, -99.000, -99.00,
+                                                     '-9999.0', '-99999', '-9999', '-99.000', '-99.00'],
                                           converters={'CRX_VN': str},
                                           index_col=0)
                 station_data = pd.concat([station_data, yearly_data])
