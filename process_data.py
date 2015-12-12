@@ -54,6 +54,8 @@ for station in stations:
                                           converters={'CRX_VN': str},
                                           index_col=0)
                 station_data = pd.concat([station_data, yearly_data])
+    # Sort by UTC_DATETIME index to ensure chronological order
+    station_data.sort_index(inplace=True)
     print('Writing to disk: {}'.format(station))
     station_data.to_hdf(args.output_hdf, station, format='t', complib='blosc', complevel=9)
     print('Finished processing: {}'.format(station))
