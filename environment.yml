@@ -1,10 +1,8 @@
 name: uscrn
 dependencies:
-- appnope=0.1.0=py35_0
 - decorator=4.0.4=py35_0
 - flask=0.10.1=py35_1
 - hdf5=1.8.15.1=2
-- ipython=4.0.1=py35_0
 - ipython_genutils=0.1.0=py35_0
 - itsdangerous=0.24=py35_0
 - jinja2=2.8=py35_0
