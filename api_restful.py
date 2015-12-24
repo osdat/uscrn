@@ -1,3 +1,4 @@
+import argparse
 import numpy as np
 import pandas as pd
 from collections import OrderedDict
@@ -17,7 +18,11 @@ CORS(app)
 api = Api(app)
 
 # load data
-store = pd.HDFStore('../Data/uscrn/processed_hdf/station_data_aggregated.h5')
+parser = argparse.ArgumentParser()
+parser.add_argument('-i', '--hdf_file', required=True,
+                    help='HDFStore to use as api data source')
+args = parser.parse_args()
+store = pd.HDFStore(args.hdf_file)
 
 
 class Stations(Resource):
