@@ -124,4 +124,4 @@ api.add_resource(Station, '/api/v1.0/stations/<station_name>')
 api.add_resource(StationQuery, '/api/v1.0/stations/<station_name>/<variable>', endpoint='station_data')
 
 if __name__ == "__main__":
-    app.run(port=80)
+    app.run()
